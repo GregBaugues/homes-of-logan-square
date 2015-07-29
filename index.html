@@ -8,13 +8,18 @@ title: Mainpage
   <div class="content">
     <main class="container">
     	<div class="row-fluid">
-    		<section class="content">
+    		<article class="home-icon">
+          <a href="/">
+            <i class="icon-home"></i>
+          </a>
+        </article>
+        <section class="content">
     		  <h1>Homes of Logan Square</h1>
     		</section>
     		<ul class="entries">
     		{% for post in paginator.posts %}
     		  <li>
-    		    <a href="{{ post.url }}">
+    		    <a href="{{ site.baseurl }}{{ post.url }}">
                       <span>{{ post.date | date: "%d %B %Y" }}</span>
     		        <h3>{{ post.title }}</h3>
                       <div>{{ post.content |truncatehtml | truncatewords: 30 }}</div>
@@ -61,7 +66,7 @@ title: Mainpage
 
         {% if paginator.next_page %}
         <p class="next">
-          <a href="/page{{paginator.next_page}}">Next</a>
+          <a href={{ site.baseurl }}"/page{{paginator.next_page}}">Next</a>
         </p>
         {% else %}
 <!--         <p class="next disabled">
